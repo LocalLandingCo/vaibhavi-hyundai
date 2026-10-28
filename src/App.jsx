@@ -4,16 +4,15 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import TrustStrip from './components/TrustStrip'
 import Assurance from './components/Assurance'
-import Booking from './components/Booking'
-import Symptoms from './components/Symptoms'
+import BookQuote from './components/BookQuote'
 import Services from './components/Services'
 import Brands from './components/Brands'
+import Process from './components/Process'
+import Amenities from './components/Amenities'
 import WhyUs from './components/WhyUs'
 import Gallery from './components/Gallery'
 import Reviews from './components/Reviews'
-import Offers from './components/Offers'
 import Visit from './components/Visit'
-import EnquiryForm from './components/EnquiryForm'
 import Footer from './components/Footer'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import ScrollToTop from './components/ScrollToTop'
@@ -48,16 +47,15 @@ export default function App() {
         <Hero t={t} />
         <TrustStrip t={t} />
         <Assurance t={t} />
-        <Booking t={t} />
-        <Symptoms t={t} />
-        <Services t={t} />
         <Brands t={t} />
+        <Services t={t} />
+        <Process t={t} />
+        <BookQuote t={t} lang={lang} />
+        <Amenities t={t} />
         <WhyUs t={t} />
-        <Gallery t={t} />
         <Reviews t={t} />
-        <Offers t={t} />
+        <Gallery t={t} />
         <Visit t={t} />
-        <EnquiryForm t={t} />
       </main>
       <Footer t={t} />
       <FloatingWhatsApp t={t} />

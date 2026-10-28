@@ -1,8 +1,5 @@
 import Section from './Section'
 import { Stars } from './Icons'
-import { links } from '../content'
-import { telLink } from '../lib/helpers'
-import { PhoneIcon } from './Icons'
 
 // Note: individual star ratings per review are not known, so we only show the
 // overall 4.8 Google rating, never a star count on each review.
@@ -27,23 +24,6 @@ export default function Reviews({ t }) {
             </footer>
           </blockquote>
         ))}
-      </div>
-
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a
-          href={links.googleReviews}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-xl border border-brand-700 px-5 py-3 font-bold text-brand-700 hover:bg-brand-50"
-        >
-          {r.readAll} ↗
-        </a>
-        <a
-          href={telLink}
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-700 px-5 py-3 font-bold text-white hover:bg-brand-800"
-        >
-          <PhoneIcon /> {r.cta}
-        </a>
       </div>
     </Section>
   )

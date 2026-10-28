@@ -47,3 +47,7 @@ export function HyundaiBadge({ className = '' }) {
 export function KiaWordmark({ className = '' }) {
   return <img src={`${import.meta.env.BASE_URL}brands/kia.jpg`} alt="Kia" className={`h-12 w-auto object-contain ${className}`} />
 }
+
+export function MarutiSuzukiLogo({ className = '' }) {
+  return <img src={`${import.meta.env.BASE_URL}brands/maruti-suzuki.svg`} alt="Maruti Suzuki" className={`w-28 object-contain ${className}`} />
+}

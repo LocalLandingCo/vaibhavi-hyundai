@@ -5,7 +5,7 @@ import { waLink } from '../lib/helpers'
 export default function WhyUs({ t }) {
   const w = t.why
   return (
-    <Section id="why" title={w.title} tone="soft">
+    <Section id="why" title={w.title}>
       <div className="grid gap-4 sm:grid-cols-2">
         {w.points.map((p, i) => (
           <div key={p.title} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">

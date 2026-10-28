@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Section from './Section'
 import { ChevronIcon, WhatsAppIcon } from './Icons'
 import { waLink } from '../lib/helpers'
+import { prices } from '../content'
 
 // Emoji per category id. Swap for SVGs later if you like.
 const ICONS = {
@@ -20,18 +21,12 @@ export default function Services({ t }) {
   const [openId, setOpenId] = useState(null)
   const s = t.services
 
-  // The symptoms block asks us to open a card (see Symptoms.jsx).
-  useEffect(() => {
-    const onOpen = (ev) => {
-      setOpenId(ev.detail)
-      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
-    }
-    window.addEventListener('open-service', onOpen)
-    return () => window.removeEventListener('open-service', onOpen)
-  }, [])
-
   return (
     <Section id="services" title={s.title} subtitle={s.subtitle} tone="soft">
+      <p className="mb-6 flex items-center gap-2 rounded-xl border border-brand-100 bg-brand-50 px-4 py-3 text-sm font-semibold text-brand-900">
+        <span aria-hidden="true" className="text-lg">✅</span>
+        {s.genuine}
+      </p>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {s.items.map((item) => {
           const open = openId === item.id
@@ -54,6 +49,11 @@ export default function Services({ t }) {
                 <span className="min-w-0 flex-1">
                   <span className="block text-lg font-bold text-ink">{item.title}</span>
                   <span className="mt-0.5 block text-sm text-slate-600">{item.blurb}</span>
+                  {prices[item.id] != null && (
+                    <span className="mt-1 block text-sm font-bold text-brand-800">
+                      {s.priceFrom} ₹{prices[item.id].toLocaleString('en-IN')}
+                    </span>
+                  )}
                 </span>
                 <ChevronIcon
                   className={`mt-1 shrink-0 text-brand-700 transition-transform ${open ? 'rotate-180' : ''}`}

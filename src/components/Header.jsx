@@ -1,6 +1,5 @@
-import { business } from '../content'
-import { telLink, waLink } from '../lib/helpers'
-import { PhoneIcon, WhatsAppIcon } from './Icons'
+import { business, links } from '../content'
+import { InstagramIcon } from './Icons'
 import { LogoMark } from './Logo'
 
 export default function Header({ t, lang, setLang }) {
@@ -36,23 +35,14 @@ export default function Header({ t, lang, setLang }) {
         </button>
 
         <a
-          href={telLink}
-          className="inline-flex items-center gap-1.5 rounded-full bg-brand-700 px-3 py-2 text-sm font-semibold text-white hover:bg-brand-800"
-        >
-          <PhoneIcon width={16} height={16} />
-          <span className="hidden sm:inline">{t.ui.call}</span>
-          <span className="sr-only sm:hidden">{t.ui.call}</span>
-        </a>
-
-        <a
-          href={waLink(t.hero.waMessage)}
+          href={links.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full bg-wa px-3 py-2 text-sm font-semibold text-white hover:bg-wa-dark"
+          aria-label="Instagram"
+          title="Instagram"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-brand-700"
         >
-          <WhatsAppIcon width={16} height={16} />
-          <span className="hidden sm:inline">{t.ui.whatsapp}</span>
-          <span className="sr-only sm:hidden">{t.ui.whatsapp}</span>
+          <InstagramIcon width={18} height={18} />
         </a>
       </div>
     </header>

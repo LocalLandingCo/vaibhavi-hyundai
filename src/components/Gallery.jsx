@@ -6,6 +6,8 @@ import { asset } from '../lib/helpers'
 // (see README, "Swap in real photos"). Do not hotlink Google images.
 export default function Gallery({ t }) {
   const g = t.gallery
+  // Hidden until at least one real photo replaces the placeholders.
+  if (g.items.every((item) => item.src.endsWith('placeholder.svg'))) return null
   return (
     <Section id="gallery" title={g.title} subtitle={g.subtitle}>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">

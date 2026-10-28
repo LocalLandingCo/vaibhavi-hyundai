@@ -1,7 +1,7 @@
 import Section from './Section'
 import { business, links } from '../content'
-import { telLink } from '../lib/helpers'
-import { PhoneIcon, PinIcon } from './Icons'
+import { telLink, waLink } from '../lib/helpers'
+import { PhoneIcon, PinIcon, WhatsAppIcon } from './Icons'
 
 export default function Visit({ t }) {
   const v = t.visit
@@ -10,7 +10,7 @@ export default function Visit({ t }) {
   const order = [1, 2, 3, 4, 5, 6, 0]
 
   return (
-    <Section id="visit" title={v.title} tone="soft">
+    <Section id="visit" title={v.title}>
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-6">
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -34,7 +34,7 @@ export default function Visit({ t }) {
                         )}
                       </th>
                       <td className={`px-5 py-2.5 text-right ${closed ? 'font-bold text-red-600' : 'text-green-700'}`}>
-                        {closed ? v.closed : v.open24}
+                        {closed ? v.closed : v.openHours}
                       </td>
                     </tr>
                   )
@@ -66,6 +66,14 @@ export default function Visit({ t }) {
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-700 px-5 py-3 font-bold text-white hover:bg-brand-800"
               >
                 <PhoneIcon /> {v.callCta}
+              </a>
+              <a
+                href={waLink(t.hero.waMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-wa px-5 py-3 font-bold text-white hover:bg-wa-dark"
+              >
+                <WhatsAppIcon /> {v.waCta}
               </a>
             </div>
           </div>

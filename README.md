@@ -37,7 +37,7 @@ npm run preview    # serves the built dist/
 ## Editing text
 
 Open `src/content.js`. Business facts (phone, address, hours) are at the top; English is `content.en`, Marathi is `content.mr`. Keep both in the same order.
-Anything marked `[CONFIRM WITH OWNER]` must be checked before launch (the Offers block, and the review wording for Rudra Travelsplash, which is a short paraphrase).
+Anything marked `[CONFIRM WITH OWNER]` must be checked before launch (the review wording for Rudra Travelsplash, which is a short paraphrase).
 
 ## How the base path works
 
@@ -80,7 +80,6 @@ The workflow runs `npm ci`, builds, and deploys with `actions/configure-pages`, 
 ## Things to confirm with the owner
 
 - Owner name (Ravi appears only inside a customer review, so it is not used elsewhere).
-- Current offer, if any (Offers block is a placeholder).
 - Whether to add prices, years in business, warranties or certifications (none are shown).
 - The Google reviews link in `src/content.js` (`links.googleReviews`). If it does not open the reviews panel, paste the "Share" link from the Google Business Profile.
 - Which other brands to list (only Kia is named, and nothing is called "authorised").
