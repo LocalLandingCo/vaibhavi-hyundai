@@ -1,0 +1,8 @@
+# TODO (optional custom domain)
+# 1. Copy this file to "CNAME" (no extension) in this same folder.
+# 2. Replace the single line below with your domain and DELETE these comment lines.
+#    A real CNAME file must contain ONLY the domain name, nothing else.
+# 3. Set the repository variable VITE_BASE to "/" (Settings -> Secrets and variables -> Actions -> Variables).
+# 4. Follow the DNS steps in README.md.
+#
+# www.example.com
