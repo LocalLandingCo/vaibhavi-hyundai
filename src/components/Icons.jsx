@@ -52,3 +52,15 @@ export const InstagramIcon = (p) => (
     <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
   </svg>
 )
+
+export const MenuIcon = (p) => (
+  <svg {...base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" {...p}>
+    <path d="M4 7h16M4 12h16M4 17h16" />
+  </svg>
+)
+
+export const CloseIcon = (p) => (
+  <svg {...base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" {...p}>
+    <path d="M6 6l12 12M18 6L6 18" />
+  </svg>
+)

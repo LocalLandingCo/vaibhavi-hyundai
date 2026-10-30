@@ -15,3 +15,68 @@
     }
   }
 }
+
+/* Kilometre stone (hero sign and How-it-works markers): arched top, amber cap. */
+.milestone {
+  border-radius: 50% 50% 6px 6px / 36% 36% 6px 6px;
+  background: linear-gradient(theme('colors.accent.DEFAULT') 0 34%, #fff 34%);
+  box-shadow: inset -8px 0 0 rgb(15 23 42 / 0.06);
+}
+
+/* Accordion-style panel: animates via grid rows so content height never needs measuring. */
+.disclosure {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s cubic-bezier(0.2, 0, 0, 1);
+}
+.disclosure[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+.disclosure > div {
+  overflow: hidden;
+}
+
+/* Motion: transform/opacity only, and none at all for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .stone-arrive {
+    animation: stone-arrive 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.3s both;
+    transform-origin: 50% 100%;
+  }
+  @keyframes stone-arrive {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scaleY(0.94);
+    }
+  }
+
+  /* How it works: the road draws once, then each stone pops in along it. */
+  .draw-x {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .draw-y {
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .is-in .draw-x,
+  .is-in .draw-y {
+    transform: none;
+  }
+  .pop {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-out, transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+    transition-delay: calc(var(--i, 0) * 180ms + 200ms);
+  }
+  .is-in .pop {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .disclosure {
+    transition: none;
+  }
+}

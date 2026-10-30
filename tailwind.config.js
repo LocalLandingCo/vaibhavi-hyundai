@@ -4,18 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Deliberately NOT Hyundai blue. Deep teal + warm amber, workshop feel.
+        // "Peacock & Marigold": deliberately NOT Hyundai blue. Peacock green + festival marigold.
         brand: {
-          50: '#f0fdfa',
-          100: '#ccfbf1',
-          500: '#14b8a6',
-          600: '#0d9488',
-          700: '#0f766e',
-          800: '#115e59',
-          900: '#134e4a',
+          50: '#EDFAF8',
+          100: '#CBF0EB',
+          500: '#12A497',
+          600: '#008C83',
+          700: '#007A73', // primary: white text 5.3:1
+          800: '#05625C',
+          900: '#04403D', // deep peacock: hero, headings
         },
-        accent: { DEFAULT: '#f59e0b', dark: '#d97706' },
-        ink: '#0f172a',
+        accent: { DEFAULT: '#FFB31A', dark: '#F29D00' }, // marigold: always dark text on it
+        hibiscus: '#D11D55', // small tags only, white text
+        cream: '#FFF7E8', // soft section background
+        line: '#F2DDB0', // borders on cream
+        ink: '#10302E',
         wa: { DEFAULT: '#25D366', dark: '#1ebe5b' },
       },
       fontFamily: {

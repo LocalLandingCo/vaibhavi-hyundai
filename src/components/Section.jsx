@@ -1,6 +1,6 @@
 // A reusable section wrapper: consistent spacing, anchor id, optional heading.
 export default function Section({ id, title, subtitle, tone = 'white', children }) {
-  const bg = tone === 'soft' ? 'bg-slate-50' : tone === 'dark' ? 'bg-brand-900 text-white' : 'bg-white'
+  const bg = tone === 'soft' ? 'bg-cream' : tone === 'dark' ? 'bg-brand-900 text-white' : 'bg-white'
   return (
     <section id={id} className={`scroll-mt-20 py-14 sm:py-20 ${bg}`}>
       <div className="mx-auto max-w-6xl px-4">

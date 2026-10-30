@@ -14,18 +14,18 @@ export function LogoMark({ size = 40, className = '' }) {
         cy="60"
         r="53"
         fill="none"
-        stroke="#0a4a46"
+        stroke="#04403D"
         strokeWidth="12"
         strokeDasharray="8 5.875"
         transform="rotate(-94.3 60 60)"
       />
-      <circle cx="60" cy="60" r="50" fill="#0a4a46" />
-      <circle cx="60" cy="60" r="41" fill="none" stroke="#fbb024" strokeWidth="2.2" />
+      <circle cx="60" cy="60" r="50" fill="#04403D" />
+      <circle cx="60" cy="60" r="41" fill="none" stroke="#FFB31A" strokeWidth="2.2" />
       <g transform="translate(22.8 21.56) scale(0.62)">
         <path d="M22 26 H44 L60 72 L76 26 H98 L70 98 H50 Z" fill="#fff" />
-        <rect x="57" y="29" width="6" height="12" rx="2" fill="#fbb024" />
-        <rect x="58" y="47" width="4" height="8" rx="1.5" fill="#fbb024" />
-        <rect x="59" y="60" width="2.4" height="5" rx="1" fill="#fbb024" />
+        <rect x="57" y="29" width="6" height="12" rx="2" fill="#FFB31A" />
+        <rect x="58" y="47" width="4" height="8" rx="1.5" fill="#FFB31A" />
+        <rect x="59" y="60" width="2.4" height="5" rx="1" fill="#FFB31A" />
       </g>
     </svg>
   )
