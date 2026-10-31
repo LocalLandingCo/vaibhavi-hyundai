@@ -21,7 +21,7 @@ export default function Header({ t, lang, setLang }) {
         <a href="#top" className="mr-auto flex min-w-0 items-center gap-2.5 leading-tight">
           <LogoMark size={40} className="shrink-0" />
           <span className="min-w-0">
-            <span className="block truncate text-base font-extrabold tracking-wide text-brand-800 sm:text-lg">
+            <span className="block truncate text-[15px] font-extrabold tracking-normal text-brand-800 sm:text-lg sm:tracking-wide">
               {business.name}
             </span>
             <span className="block truncate text-[11px] text-slate-500 sm:text-xs min-[900px]:max-lg:hidden">
@@ -42,9 +42,10 @@ export default function Header({ t, lang, setLang }) {
           type="button"
           onClick={() => setLang(next)}
           aria-label={t.ui.toggleLabel}
-          className="rounded-full border border-slate-300 px-3 py-1.5 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+          className="shrink-0 rounded-full border border-slate-300 px-2.5 py-1.5 text-sm font-semibold sm:px-3 text-slate-700 hover:bg-slate-100"
         >
-          {t.ui.toggleTo}
+          {/* The label is in the other language. */}
+          <span lang={next}>{t.ui.toggleTo}</span>
         </button>
 
         <a

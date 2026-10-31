@@ -17,7 +17,7 @@ export default function ScrollToTop({ t }) {
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label={t.footer.topLink}
       title={t.footer.topLink}
-      className="fixed bottom-20 right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-brand-800 text-white shadow-xl hover:bg-brand-900 sm:bottom-6 sm:right-6"
+      className="fixed bottom-20 right-4 z-50 hidden h-11 w-11 sm:flex items-center justify-center rounded-full bg-brand-800 text-white shadow-xl hover:bg-brand-900 sm:bottom-6 sm:right-6"
     >
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 19V5M5 12l7-7 7 7" />

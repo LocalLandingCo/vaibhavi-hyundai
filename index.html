@@ -6,6 +6,9 @@
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <link rel="apple-touch-icon" href="%BASE_URL%favicon.svg" />
     <meta name="theme-color" content="#04403D" />
+    <!-- Hero poster is the largest thing on first screen: fetch it before the JS runs. -->
+    <link rel="preload" as="image" href="%BASE_URL%videos/hero-poster-mobile.jpg" media="(max-width: 767px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="%BASE_URL%videos/hero-poster.jpg" media="(min-width: 768px)" fetchpriority="high" />
 
     <title>Car Service Phaltan | Car Garage Phaltan | कार सर्विस फलटण – Vaibhavi Automotive</title>
     <meta

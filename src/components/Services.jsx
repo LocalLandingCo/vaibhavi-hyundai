@@ -30,7 +30,7 @@ export default function Services({ t }) {
                 aria-expanded={open}
                 aria-controls={panelId}
                 onClick={() => setOpenId(open ? null : item.id)}
-                className="flex min-h-[8.75rem] w-full items-start gap-3 p-5 text-left"
+                className="flex w-full items-start gap-3 p-4 text-left sm:min-h-[8.75rem] sm:p-5"
               >
                 <span
                   aria-hidden="true"

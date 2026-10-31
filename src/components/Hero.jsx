@@ -16,29 +16,62 @@ function Milestone({ m, className = '' }) {
   )
 }
 
-// Muted looping background video. Skipped (poster only) for reduced-motion and data-saver users.
+// Phones get a 9:16 centre crop (~0.3 MB) instead of the 16:9 desktop file (~1.8 MB):
+// a portrait hero only ever shows the middle of a landscape frame anyway.
+const PHONE = '(max-width: 767px)'
+const SLOW = ['slow-2g', '2g', '3g']
+
+// Muted looping background video. The poster image is the real hero (and the LCP); the video
+// only starts after the page has finished loading, so it never competes with text, fonts or
+// the poster. Skipped entirely (poster only) for reduced motion, data saver and slow networks.
 function HeroVideo() {
-  const [play, setPlay] = useState(false)
+  const [phone] = useState(() => window.matchMedia(PHONE).matches)
+  const [src, setSrc] = useState(null)
+  const [playing, setPlaying] = useState(false)
+
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const saveData = navigator.connection?.saveData
-    setPlay(!reduce && !saveData)
+    const conn = navigator.connection
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (conn?.saveData || SLOW.includes(conn?.effectiveType)) return
+    const start = () =>
+      setSrc({
+        webm: asset(phone ? 'videos/hero-mobile.webm' : 'videos/hero.webm'),
+        mp4: asset(phone ? 'videos/hero-mobile.mp4' : 'videos/hero.mp4'),
+      })
+    // Wait for the load event, then a quiet moment, before fetching any video bytes.
+    let idle
+    const later = () => (idle = (window.requestIdleCallback || setTimeout)(start, { timeout: 2000 }))
+    if (document.readyState === 'complete') later()
+    else window.addEventListener('load', later, { once: true })
+    return () => {
+      window.removeEventListener('load', later)
+      if (idle) (window.cancelIdleCallback || clearTimeout)(idle)
+    }
   }, [])
+
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-      <img src={asset('videos/hero-poster.jpg')} alt="" className="hero-settle h-full w-full object-cover" />
-      {play && (
+      {/* Chosen in JS rather than with <picture>: React sets the img src before the <source>
+          is attached, so both posters would download. Matches the preload in index.html. */}
+      <img
+        src={asset(phone ? 'videos/hero-poster-mobile.jpg' : 'videos/hero-poster.jpg')}
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+        className="hero-settle h-full w-full object-cover"
+      />
+      {src && (
         <video
-          className="hero-settle absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${playing ? 'opacity-100' : 'opacity-0'}`}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
-          poster={asset('videos/hero-poster.jpg')}
+          preload="auto"
+          onPlaying={() => setPlaying(true)}
         >
-          <source src={asset('videos/hero.webm')} type="video/webm" />
-          <source src={asset('videos/hero.mp4')} type="video/mp4" />
+          <source src={src.webm} type="video/webm" />
+          <source src={src.mp4} type="video/mp4" />
         </video>
       )}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-900/85 via-brand-800/75 to-brand-700/60" />

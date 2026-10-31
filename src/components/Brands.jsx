@@ -12,13 +12,13 @@ export default function Brands({ t }) {
     <section id="brands" className="scroll-mt-20 border-b border-slate-200 bg-white py-6">
       <div className="mx-auto max-w-6xl px-4">
         <p className="text-center text-sm font-bold uppercase tracking-wide text-slate-500">{b.title}</p>
-        <div className="mt-4 grid items-center gap-3 sm:grid-cols-3 sm:gap-5">
+        <div className="mt-4 grid grid-cols-3 items-center gap-2 sm:gap-5">
           {b.featured.map((f) => (
-            <div key={f.name} className="flex h-16 items-center justify-center rounded-xl bg-cream px-4 ring-1 ring-line">
+            <div key={f.name} className="flex h-14 items-center justify-center rounded-xl bg-cream px-2 ring-1 ring-line sm:h-16 sm:px-4">
               {logos[f.name]}
             </div>
           ))}
-          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600 sm:col-span-3 sm:justify-center">
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 col-span-3 text-sm text-slate-600 sm:justify-center">
             <span>{b.moreText}</span>
             <a
               href={waLink(b.waMessage)}

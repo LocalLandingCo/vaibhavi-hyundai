@@ -6,6 +6,12 @@
   html {
     scroll-behavior: smooth;
   }
+  /* Marathi snippets on the English page (language toggle, a Marathi review) use the phone's
+     built-in Devanagari font, so English visitors skip a ~120 KB web font download.
+     On Android that built-in font is Noto Sans Devanagari, the same face. */
+  html[lang='en'] [lang='mr'] {
+    font-family: system-ui, -apple-system, 'Segoe UI', 'Nirmala UI', sans-serif;
+  }
   body {
     @apply bg-white font-sans text-ink antialiased;
   }
