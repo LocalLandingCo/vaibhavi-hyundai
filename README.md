@@ -1,4 +1,4 @@
-# Vaibhavi Hyundai – Phaltan (static site)
+# Vaibhavi Automotive – Phaltan (static site)
 
 Mobile-first, bilingual (English / मराठी) website for an independent multi-brand car service centre in Tambmal, Phaltan.
 React + Vite + Tailwind. Fully static: no server, no database, no API keys. Deploys free to GitHub Pages with GitHub Actions.

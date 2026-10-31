@@ -8,8 +8,8 @@
 // ─────────────────────────────────────────────────────────────
 
 export const business = {
-  name: 'VAIBHAVI HYUNDAI',
-  altName: 'Vaibhavi Automotive Phaltan',
+  name: 'VAIBHAVI AUTOMOTIVE',
+  altName: 'Vaibhavi Automotive Phaltan', // no longer shown in the footer
   phoneDisplay: '+91 94046 31159',
   phoneTel: '+919404631159',
   whatsappNumber: '919404631159', // digits only, for wa.me
@@ -261,7 +261,7 @@ export const content = {
       notePh: 'Any extra detail that helps us quote',
       submit: 'Get exact quote on WhatsApp',
       required: 'Please choose the service, what exactly you need, and enter your car make, model and fuel type.',
-      msg: { hello: 'Hello Vaibhavi Hyundai, please share a quote.', service: 'Service', type: 'Need', car: 'Car', fuel: 'Fuel', year: 'Year', km: 'Km driven', note: 'Note' },
+      msg: { hello: 'Hello Vaibhavi Automotive, please share a quote.', service: 'Service', type: 'Need', car: 'Car', fuel: 'Fuel', year: 'Year', km: 'Km driven', note: 'Note' },
     },
     // Amenities the shop really offers (waiting area, pick-up and drop, loaner car, ...).
     // Leave `items` EMPTY until the owner confirms; the section stays hidden.
@@ -348,7 +348,7 @@ export const content = {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       addressTitle: 'Address',
       directions: 'Get directions',
-      mapTitle: 'Map showing Vaibhavi Hyundai, Tambmal, Phaltan',
+      mapTitle: 'Map showing Vaibhavi Automotive, Tambmal, Phaltan',
       callCta: 'Call us',
       waCta: 'WhatsApp us',
     },
@@ -382,7 +382,7 @@ export const content = {
         past: 'Please pick today or a later date.',
       },
       msg: {
-        hello: 'Hello Vaibhavi Hyundai, I would like to book a service.',
+        hello: 'Hello Vaibhavi Automotive, I would like to book a service.',
         service: 'Service',
         date: 'Date',
         window: 'Drop-off time',
@@ -398,6 +398,10 @@ export const content = {
       hoursLine: 'Open 10 AM – 8 PM, Mon, Wed–Sun. Tuesday closed.',
       disclaimer: 'Independent multi-brand service centre.',
       topLink: 'Back to top',
+      rights: 'All rights reserved.',
+      builtWith: 'Built with',
+      builtBy: 'by',
+      loveLabel: 'love',
     },
     floatingWa: 'WhatsApp',
   },
@@ -622,7 +626,7 @@ export const content = {
       notePh: 'खर्च सांगण्यास उपयोगी पडेल अशी माहिती',
       submit: 'व्हॉट्सॲपवर अचूक खर्च विचारा',
       required: 'कृपया सेवा, नक्की काय हवे आहे, तसेच गाडीची कंपनी, मॉडेल आणि इंधन प्रकार लिहा.',
-      msg: { hello: 'नमस्कार वैभवी ह्युंदाई, कृपया खर्चाचा अंदाज कळवा.', service: 'सेवा', type: 'गरज', car: 'गाडी', fuel: 'इंधन', year: 'वर्ष', km: 'चाललेले किमी', note: 'टीप' },
+      msg: { hello: 'नमस्कार वैभवी ऑटोमोटिव्ह, कृपया खर्चाचा अंदाज कळवा.', service: 'सेवा', type: 'गरज', car: 'गाडी', fuel: 'इंधन', year: 'वर्ष', km: 'चाललेले किमी', note: 'टीप' },
     },
     // Leave `items` EMPTY until the owner confirms; the section stays hidden.
     amenities: { title: 'तुमच्या सोयीसाठी', subtitle: 'तुमची भेट सोपी करणाऱ्या छोट्या सुविधा.', items: [] },
@@ -709,7 +713,7 @@ export const content = {
       days: ['रविवार', 'सोमवार', 'मंगळवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
       addressTitle: 'पत्ता',
       directions: 'रस्ता दाखवा',
-      mapTitle: 'तांबमाळ, फलटण येथील वैभवी ह्युंदाईचा नकाशा',
+      mapTitle: 'तांबमाळ, फलटण येथील वैभवी ऑटोमोटिव्हचा नकाशा',
       callCta: 'कॉल करा',
       waCta: 'व्हॉट्सॲप करा',
     },
@@ -743,7 +747,7 @@ export const content = {
         past: 'कृपया आजची किंवा पुढील तारीख निवडा.',
       },
       msg: {
-        hello: 'नमस्कार वैभवी ह्युंदाई, मला सर्विस बुक करायची आहे.',
+        hello: 'नमस्कार वैभवी ऑटोमोटिव्ह, मला सर्विस बुक करायची आहे.',
         service: 'सेवा',
         date: 'तारीख',
         window: 'गाडी आणण्याची वेळ',
@@ -759,6 +763,10 @@ export const content = {
       hoursLine: 'सकाळी १० ते रात्री ८ खुले: सोम, बुध–रवि. मंगळवार बंद.',
       disclaimer: 'स्वतंत्र मल्टी-ब्रँड सर्विस सेंटर. (Independent multi-brand service centre.)',
       topLink: 'वर जा',
+      rights: 'सर्व हक्क राखीव.',
+      builtWith: 'प्रेमाने बनवले',
+      builtBy: 'द्वारे',
+      loveLabel: 'प्रेम',
     },
     floatingWa: 'व्हॉट्सॲप',
   },

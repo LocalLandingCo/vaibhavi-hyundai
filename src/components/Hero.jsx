@@ -1,4 +1,5 @@
-import { telLink, waLink } from '../lib/helpers'
+import { useEffect, useState } from 'react'
+import { asset, telLink, waLink } from '../lib/helpers'
 import { useShopStatus } from '../lib/hooks'
 import { PhoneIcon, WhatsAppIcon } from './Icons'
 
@@ -15,11 +16,42 @@ function Milestone({ m, className = '' }) {
   )
 }
 
+// Muted looping background video. Skipped (poster only) for reduced-motion and data-saver users.
+function HeroVideo() {
+  const [play, setPlay] = useState(false)
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const saveData = navigator.connection?.saveData
+    setPlay(!reduce && !saveData)
+  }, [])
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <img src={asset('videos/hero-poster.jpg')} alt="" className="h-full w-full object-cover" />
+      {play && (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={asset('videos/hero-poster.jpg')}
+        >
+          <source src={asset('videos/hero.webm')} type="video/webm" />
+          <source src={asset('videos/hero.mp4')} type="video/mp4" />
+        </video>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-900/85 via-brand-800/75 to-brand-700/60" />
+    </div>
+  )
+}
+
 export default function Hero({ t }) {
   const h = t.hero
   const status = useShopStatus(t)
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white">
+      <HeroVideo />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-accent/20 blur-3xl"

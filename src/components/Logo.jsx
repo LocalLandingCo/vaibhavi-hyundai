@@ -1,4 +1,4 @@
-// Vaibhavi Hyundai logo: gear + road-V mark, with optional wordmark.
+// Vaibhavi Automotive logo: gear + road-V mark, with optional wordmark.
 export function LogoMark({ size = 40, className = '' }) {
   return (
     <svg
@@ -6,7 +6,7 @@ export function LogoMark({ size = 40, className = '' }) {
       height={size}
       viewBox="0 0 120 120"
       role="img"
-      aria-label="Vaibhavi Hyundai logo"
+      aria-label="Vaibhavi Automotive logo"
       className={className}
     >
       <circle

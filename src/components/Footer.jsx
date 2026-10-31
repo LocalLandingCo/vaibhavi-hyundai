@@ -12,7 +12,7 @@ export default function Footer({ t }) {
             <LogoMarkOnDark size={48} />
             <div>
               <p className="text-lg font-extrabold tracking-wide text-white">{business.name}</p>
-              <p className="text-sm text-slate-400">{business.altName}</p>
+              <p className="text-sm text-slate-400">{f.disclaimer}</p>
             </div>
           </div>
           <h3 className="mt-5 text-sm font-bold uppercase tracking-wide text-slate-400">{f.addressTitle}</h3>
@@ -36,7 +36,16 @@ export default function Footer({ t }) {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-6xl border-t border-slate-700 px-4 pt-5 text-xs text-slate-400">
-        <p>{f.disclaimer}</p>
+        <p>
+          © {new Date().getFullYear()} {business.name}. {f.rights}
+        </p>
+        <p className="mt-2 flex items-center gap-1.5">
+          {f.builtWith}
+          <svg viewBox="0 0 24 24" role="img" aria-label={f.loveLabel} className="h-3.5 w-3.5 fill-red-500">
+            <path d="M12 21s-7.5-4.6-9.6-9.2C.8 8.2 3 4.5 6.7 4.5c2 0 3.7 1.1 5.3 3 1.6-1.9 3.3-3 5.3-3 3.7 0 5.9 3.7 4.3 7.3C19.5 16.4 12 21 12 21z" />
+          </svg>
+          {f.builtBy} <span className="font-semibold text-slate-200">LocalLandingCo</span>
+        </p>
       </div>
     </footer>
   )
