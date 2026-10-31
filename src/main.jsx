@@ -1,5 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import '@fontsource-variable/fraunces'
+import '@fontsource-variable/instrument-sans'
+import '@fontsource-variable/noto-sans-devanagari'
+import '@fontsource-variable/noto-serif-devanagari'
 import App from './App.jsx'
 import './index.css'
 

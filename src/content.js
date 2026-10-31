@@ -41,8 +41,9 @@ export const links = {
 export const content = {
   // ───────────────────────── ENGLISH ─────────────────────────
   en: {
-    meta: { langName: 'English' },
+    meta: { langName: 'English', numLocale: 'en-IN' },
     ui: {
+      km: 'KM',
       call: 'Call',
       callNow: 'Call now',
       whatsapp: 'WhatsApp',
@@ -408,8 +409,9 @@ export const content = {
 
   // ───────────────────────── मराठी ─────────────────────────
   mr: {
-    meta: { langName: 'मराठी' },
+    meta: { langName: 'मराठी', numLocale: 'mr-IN-u-nu-deva' },
     ui: {
+      km: 'किमी',
       call: 'कॉल करा',
       callNow: 'आत्ताच कॉल करा',
       whatsapp: 'व्हॉट्सॲप',

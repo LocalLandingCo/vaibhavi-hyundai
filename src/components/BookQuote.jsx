@@ -3,7 +3,7 @@ import Section from './Section'
 import { PhoneIcon, WhatsAppIcon } from './Icons'
 import { business } from '../content'
 import { quoteConfig, quotePrices } from '../quoteConfig'
-import { telLink, waLink } from '../lib/helpers'
+import { telLink, waLink, kmTag } from '../lib/helpers'
 
 const OTHER = 'other'
 const EMPTY = {
@@ -90,7 +90,7 @@ export default function BookQuote({ t, lang }) {
   const num = () => `${++step}. `
 
   return (
-    <Section id="book" title={c.title} subtitle={c.subtitle} tone="soft">
+    <Section id="book" km={kmTag(t, 3)} title={c.title} subtitle={c.subtitle} tone="soft">
       <form onSubmit={onSubmit} noValidate className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
         <div role="tablist" aria-label={c.title} className="flex gap-1 rounded-xl border border-slate-200 bg-slate-50 p-1 sm:max-w-md">
           <button type="button" role="tab" aria-selected={!booking} onClick={() => setMode('quote')} className={tab(!booking)}>

@@ -1,6 +1,6 @@
 import Section from './Section'
 import { business, links } from '../content'
-import { telLink, waLink } from '../lib/helpers'
+import { telLink, waLink, kmTag } from '../lib/helpers'
 import { PhoneIcon, PinIcon, WhatsAppIcon } from './Icons'
 
 export default function Visit({ t }) {
@@ -10,7 +10,7 @@ export default function Visit({ t }) {
   const order = [1, 2, 3, 4, 5, 6, 0]
 
   return (
-    <Section id="visit" title={v.title}>
+    <Section id="visit" km={kmTag(t, 6)} title={v.title}>
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-6">
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">

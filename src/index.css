@@ -9,6 +9,16 @@
   body {
     @apply bg-white font-sans text-ink antialiased;
   }
+  h1,
+  h2 {
+    @apply font-display;
+  }
+  /* Visible, on-brand keyboard focus everywhere. */
+  :focus-visible {
+    outline: 2px solid theme('colors.brand.600');
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -34,6 +44,113 @@
 }
 .disclosure > div {
   overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s linear 0.28s;
+}
+.disclosure[data-open='true'] > div {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* ── Section materials: light, grain and depth instead of flat fills ───────── */
+.paper,
+.paper-white,
+.paper-dark {
+  position: relative;
+  isolation: isolate;
+}
+.paper::before,
+.paper-white::before,
+.paper-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.19 0 0 0 0 0.18 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+}
+.paper {
+  background:
+    radial-gradient(70% 90% at 12% 0%, #fffdf6 0%, transparent 60%),
+    radial-gradient(60% 80% at 100% 100%, #f7e6bd 0%, transparent 65%),
+    theme('colors.cream');
+}
+.paper-white {
+  background:
+    radial-gradient(60% 70% at 100% 0%, #fff7e8 0%, transparent 60%),
+    #fff;
+}
+.paper-dark {
+  background:
+    radial-gradient(60% 80% at 85% 0%, rgb(18 164 151 / 0.28) 0%, transparent 65%),
+    radial-gradient(50% 70% at 0% 100%, rgb(255 179 26 / 0.08) 0%, transparent 70%),
+    theme('colors.brand.900');
+}
+.paper-dark::before {
+  mix-blend-mode: screen;
+  opacity: 0.05;
+}
+
+/* Section eyebrow: a km marker with a dashed road line. */
+.km-eyebrow::after {
+  content: '';
+  height: 2px;
+  width: 44px;
+  background: repeating-linear-gradient(90deg, currentColor 0 8px, transparent 8px 14px);
+  opacity: 0.55;
+}
+
+/* Cursor spotlight + lift for cards (pointer position set by useSpotlight). */
+.spot {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s, border-color 0.3s;
+}
+.spot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(255 179 26 / 0.15), transparent 70%);
+}
+@media (hover: hover) {
+  .spot:hover::before {
+    opacity: 1;
+  }
+  .spot:hover {
+    border-color: theme('colors.accent.DEFAULT');
+    box-shadow: 0 14px 32px -16px rgb(4 64 61 / 0.35);
+  }
+}
+
+/* Buttons: lift on hover, press on click. */
+.btn-lift {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s, background-color 0.2s;
+}
+.btn-lift:active {
+  transform: scale(0.98);
+}
+@media (hover: hover) {
+  .btn-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -12px rgb(4 64 61 / 0.5);
+  }
+  .btn-lift:hover svg:last-child:not(:first-child) {
+    transform: translateX(3px);
+  }
+}
+
+/* Service icons draw themselves when the card is hovered or opened. */
+.svc-icon path,
+.svc-icon circle,
+.svc-icon rect,
+.svc-icon line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
 }
 
 /* Motion: transform/opacity only, and none at all for reduced motion. */
@@ -46,6 +163,52 @@
     from {
       opacity: 0;
       transform: translateY(18px) scaleY(0.94);
+    }
+  }
+
+  /* Headlines rise out of a mask instead of fading up. */
+  .mask-line {
+    display: block;
+    overflow: hidden;
+    padding: 0.14em 0;
+    margin: -0.14em 0;
+  }
+  .mask-line > span {
+    display: block;
+    transform: translateY(110%);
+    transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.1, 1);
+  }
+  .is-in .mask-line > span {
+    transform: none;
+  }
+  .fade-late {
+    opacity: 0;
+    transition: opacity 0.8s ease-out 0.25s;
+  }
+  .is-in .fade-late {
+    opacity: 1;
+  }
+
+  /* Hero video settles in slowly after load. */
+  .hero-settle {
+    animation: hero-settle 2.8s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  }
+  @keyframes hero-settle {
+    from {
+      transform: scale(1.07);
+    }
+  }
+  @media (hover: hover) {
+    .spot:hover .svc-icon path,
+    .spot:hover .svc-icon circle,
+    .spot:hover .svc-icon rect,
+    .spot:hover .svc-icon line {
+      animation: icon-draw 0.9s ease-out both;
+    }
+  }
+  @keyframes icon-draw {
+    from {
+      stroke-dashoffset: 1;
     }
   }
 

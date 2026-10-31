@@ -6,6 +6,12 @@ export function asset(path) {
   return import.meta.env.BASE_URL + String(path).replace(/^\/+/, '')
 }
 
+// Section kilometre marker, e.g. kmTag(t, 2) -> { label: 'KM 02', num: '02' } (Devanagari digits in Marathi).
+export function kmTag(t, n) {
+  const num = new Intl.NumberFormat(t.meta.numLocale, { minimumIntegerDigits: 2, useGrouping: false }).format(n)
+  return { label: `${t.ui.km} ${num}`, num }
+}
+
 export const telLink = `tel:${business.phoneTel}`
 
 // wa.me link with a prefilled message. No backend needed.

@@ -23,13 +23,19 @@ export default {
       },
       fontFamily: {
         sans: [
-          'Inter',
-          '"Noto Sans Devanagari"',
+          '"Instrument Sans Variable"',
+          '"Noto Sans Devanagari Variable"',
           'system-ui',
           '-apple-system',
           'Segoe UI',
-          'Roboto',
           'sans-serif',
+        ],
+        // Headlines: a soft, characterful serif with a matching Devanagari serif for Marathi.
+        display: [
+          '"Fraunces Variable"',
+          '"Noto Serif Devanagari Variable"',
+          'Georgia',
+          'serif',
         ],
       },
     },

@@ -26,10 +26,10 @@ function HeroVideo() {
   }, [])
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-      <img src={asset('videos/hero-poster.jpg')} alt="" className="h-full w-full object-cover" />
+      <img src={asset('videos/hero-poster.jpg')} alt="" className="hero-settle h-full w-full object-cover" />
       {play && (
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="hero-settle absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
@@ -71,21 +71,21 @@ export default function Hero({ t }) {
             </span>
           </span>
 
-          <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+          <h1 className="mt-6 max-w-3xl text-[2.5rem] font-semibold leading-[1.05] tracking-tight sm:text-6xl">
             {h.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-brand-100">{h.subtitle}</p>
+          <p className="mt-5 max-w-2xl text-lg text-brand-100 sm:text-xl">{h.subtitle}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href="#book"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-brand-800 shadow-lg hover:bg-brand-50"
+              className="btn-lift inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-brand-800 shadow-lg hover:bg-brand-50"
             >
               {h.ctaBook}
             </a>
             <a
               href={telLink}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-base font-bold text-ink shadow-lg hover:bg-accent-dark"
+              className="btn-lift inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-base font-bold text-ink shadow-lg hover:bg-accent-dark"
             >
               <PhoneIcon /> {h.ctaCall}
             </a>
@@ -93,7 +93,7 @@ export default function Hero({ t }) {
               href={waLink(h.waMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-wa px-6 py-3.5 text-base font-bold text-white shadow-lg hover:bg-wa-dark"
+              className="btn-lift inline-flex items-center justify-center gap-2 rounded-xl bg-wa px-6 py-3.5 text-base font-bold text-white shadow-lg hover:bg-wa-dark"
             >
               <WhatsAppIcon /> {h.ctaWhatsapp}
             </a>

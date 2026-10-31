@@ -61,3 +61,43 @@ export function useReveal() {
   }, [])
   return [ref, inView ? 'is-in' : '']
 }
+
+// Cards marked `.spot` get a soft light that follows the pointer (CSS reads --mx / --my).
+export function useSpotlight() {
+  useEffect(() => {
+    if (!window.matchMedia('(hover: hover)').matches) return
+    const move = (e) => {
+      const el = e.target.closest?.('.spot')
+      if (!el) return
+      const r = el.getBoundingClientRect()
+      el.style.setProperty('--mx', `${e.clientX - r.left}px`)
+      el.style.setProperty('--my', `${e.clientY - r.top}px`)
+    }
+    document.addEventListener('pointermove', move, { passive: true })
+    return () => document.removeEventListener('pointermove', move)
+  }, [])
+}
+
+// Thin marigold line across the very top that fills as the page is scrolled.
+export function useScrollProgress(ref) {
+  useEffect(() => {
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      const p = max > 0 ? Math.min(1, window.scrollY / max) : 0
+      if (ref.current) ref.current.style.transform = `scaleX(${p})`
+    }
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [ref])
+}

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useScrollProgress, useSpotlight } from './lib/hooks'
 import { content } from './content'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -30,6 +31,9 @@ function initialLang() {
 export default function App() {
   const [lang, setLang] = useState(initialLang)
   const t = content[lang]
+  const progress = useRef(null)
+  useSpotlight()
+  useScrollProgress(progress)
 
   useEffect(() => {
     document.documentElement.lang = lang
@@ -42,6 +46,11 @@ export default function App() {
 
   return (
     <>
+      <div
+        ref={progress}
+        aria-hidden="true"
+        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left scale-x-0 bg-accent"
+      />
       <Header t={t} lang={lang} setLang={setLang} />
       <main>
         <Hero t={t} />
